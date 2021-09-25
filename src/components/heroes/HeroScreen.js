@@ -3,6 +3,8 @@ import {Redirect, useParams} from "react-router";
 
 import {getHeroById} from "../../selectors/getHeroById";
 
+const heroImage = require.context("../../assets/heroes", true);
+
 export const HeroScreen = ({history}) => {
   const {heroId} = useParams();
 
@@ -22,7 +24,7 @@ export const HeroScreen = ({history}) => {
         <img
           alt={heroId}
           className="img-thumbnail animate__animated animate__fadeInLeft"
-          src={`../assets/heroes/${heroId}.jpg`}
+          src={heroImage(`./${heroId}.jpg`).default}
         />
       </div>
       <div className="col md-8 ps-5 animate__animated animate__fadeIn">

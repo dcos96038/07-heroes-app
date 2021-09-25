@@ -1,12 +1,14 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
+const heroImage = require.context("../../assets/heroes", true);
+
 export const HeroCard = ({id, superhero, alter_ego, first_appearance}) => {
   return (
     <div className="card ms-3 animate__animated animate__fadeIn" style={{maxWidth: "540px"}}>
       <div className="row">
         <div className="col-sm-4">
-          <img alt={superhero} className="card-img h-100" src={`./assets/heroes/${id}.jpg`} />
+          <img alt={superhero} className="card-img h-100" src={heroImage(`./${id}.jpg`).default} />
         </div>
         <div className="col-sm-8">
           <div className="card-body">
