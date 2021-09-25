@@ -1,21 +1,13 @@
 import React from "react";
-import queryString from "query-string";
 import { useForm } from "../../hooks/useForm";
-import { useLocation } from "react-router";
 
-export const SearchForm = ({ handleSearch }) => {
-  const location = useLocation;
-  const { q: query = "" } = queryString.parse(location.search);
-
+export const SearchForm = ({ handleSearch, query }) => {
   const [{ search }, handleInputChange] = useForm({
     search: query,
   });
 
   return (
-    <form
-      onSubmit={(e) => handleSearch(e, search)}
-      className="animate__animated animate__fadeInLeft"
-    >
+    <form onSubmit={(e) => handleSearch(e, search)}>
       <div className="d-flex">
         <input
           type="text"
@@ -28,7 +20,7 @@ export const SearchForm = ({ handleSearch }) => {
         />
 
         <button className="btn btn-outline-primary" type="submit">
-          Search...
+          Buscar
         </button>
       </div>
     </form>

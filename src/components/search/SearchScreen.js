@@ -1,18 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import queryString from "query-string";
 
 import { HeroCard } from "../heroes/HeroCard";
 import { getHeroesByName } from "../../selectors/getHeroesByName";
 import { SearchForm } from "./SearchForm";
 
 export const SearchScreen = ({ history }) => {
+  const { q: query = "" } = queryString.parse(history.location.search);
+
   const [heroesFiltered, setHeroesFiltered] = useState([]);
 
   const handleSearch = (e, search) => {
     e.preventDefault();
     history.push(`?q=${search}`);
-    const heroes = getHeroesByName(search);
-    setHeroesFiltered(heroes);
   };
+
+  useEffect(() => {
+    setHeroesFiltered(getHeroesByName(query));
+  }, [query]);
 
   return (
     <div>
@@ -20,8 +25,7 @@ export const SearchScreen = ({ history }) => {
         <div className="col-5">
           <h4>SearchForm</h4>
           <hr />
-
-          <SearchForm handleSearch={handleSearch} />
+          <SearchForm handleSearch={handleSearch} query={query} />
         </div>
         {heroesFiltered.length > 0 && (
           <div className="col-7">
