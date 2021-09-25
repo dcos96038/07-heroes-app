@@ -1,9 +1,10 @@
-import React, { useMemo } from "react";
-import { Redirect, useParams } from "react-router";
-import { getHeroById } from "../../selectors/getHeroById";
+import React, {useMemo} from "react";
+import {Redirect, useParams} from "react-router";
 
-export const HeroScreen = ({ history }) => {
-  const { heroId } = useParams();
+import {getHeroById} from "../../selectors/getHeroById";
+
+export const HeroScreen = ({history}) => {
+  const {heroId} = useParams();
 
   const hero = useMemo(() => getHeroById(heroId), [heroId]);
 
@@ -19,9 +20,9 @@ export const HeroScreen = ({ history }) => {
     <div className="row mt-5">
       <div className="col-4">
         <img
-          src={`../assets/heroes/${heroId}.jpg`}
           alt={heroId}
           className="img-thumbnail animate__animated animate__fadeInLeft"
+          src={`../assets/heroes/${heroId}.jpg`}
         />
       </div>
       <div className="col md-8 ps-5 animate__animated animate__fadeIn">

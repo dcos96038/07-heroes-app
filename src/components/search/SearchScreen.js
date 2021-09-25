@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import queryString from "query-string";
 
-import { HeroCard } from "../heroes/HeroCard";
-import { getHeroesByName } from "../../selectors/getHeroesByName";
-import { SearchForm } from "./SearchForm";
+import {HeroCard} from "../heroes/HeroCard";
+import {getHeroesByName} from "../../selectors/getHeroesByName";
 
-export const SearchScreen = ({ history }) => {
-  const { q: query = "" } = queryString.parse(history.location.search);
+import {SearchForm} from "./SearchForm";
+
+export const SearchScreen = ({history}) => {
+  const {q: query = ""} = queryString.parse(history.location.search);
 
   const [heroesFiltered, setHeroesFiltered] = useState([]);
 

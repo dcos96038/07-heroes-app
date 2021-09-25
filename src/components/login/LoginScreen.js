@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
-import { useHistory } from "react-router";
-import { AuthContext } from "../../auth/AuthContext";
-import { types } from "../../types/types";
+import React, {useContext} from "react";
+import {useHistory} from "react-router";
+
+import {AuthContext} from "../../auth/AuthContext";
+import {types} from "../../types/types";
 
 export const LoginScreen = () => {
-  const { dispatch } = useContext(AuthContext);
+  const {dispatch} = useContext(AuthContext);
   const history = useHistory();
 
   const handleLogin = () => {
@@ -16,6 +17,7 @@ export const LoginScreen = () => {
         name: "Diego",
       },
     };
+
     dispatch(loginAction);
 
     history.replace(lastPath);

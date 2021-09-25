@@ -1,8 +1,9 @@
 import React from "react";
-import { useForm } from "../../hooks/useForm";
 
-export const SearchForm = ({ handleSearch, query }) => {
-  const [{ search }, handleInputChange] = useForm({
+import {useForm} from "../../hooks/useForm";
+
+export const SearchForm = ({handleSearch, query}) => {
+  const [{search}, handleInputChange] = useForm({
     search: query,
   });
 
@@ -10,11 +11,11 @@ export const SearchForm = ({ handleSearch, query }) => {
     <form onSubmit={(e) => handleSearch(e, search)}>
       <div className="d-flex">
         <input
-          type="text"
-          placeholder="Find your hero"
+          autoComplete="off"
           className="form-control me-2"
           name="search"
-          autoComplete="off"
+          placeholder="Find your hero"
+          type="text"
           value={search}
           onChange={handleInputChange}
         />

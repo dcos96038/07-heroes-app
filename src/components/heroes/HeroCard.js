@@ -1,19 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-export const HeroCard = ({ id, superhero, alter_ego, first_appearance }) => {
+export const HeroCard = ({id, superhero, alter_ego, first_appearance}) => {
   return (
-    <div
-      className="card ms-3 animate__animated animate__fadeIn"
-      style={{ maxWidth: "540px" }}
-    >
+    <div className="card ms-3 animate__animated animate__fadeIn" style={{maxWidth: "540px"}}>
       <div className="row">
         <div className="col-sm-4">
-          <img
-            src={`./assets/heroes/${id}.jpg`}
-            alt={superhero}
-            className="card-img h-100"
-          />
+          <img alt={superhero} className="card-img h-100" src={`./assets/heroes/${id}.jpg`} />
         </div>
         <div className="col-sm-8">
           <div className="card-body">

@@ -1,9 +1,4 @@
-import { types } from "../types/types";
-
-// const state = {
-//   name: 'Diego',
-//   logged: true,
-// }
+import {types} from "../types/types";
 
 export const authReducer = (state = {}, action) => {
   if (action.type === types.login) {
@@ -18,5 +13,6 @@ export const authReducer = (state = {}, action) => {
       logged: false,
     };
   }
+
   return state;
 };
